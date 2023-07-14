@@ -5,7 +5,6 @@ var http=require('http')
 var app = express()
 const mongoose = require('mongoose')
 const bcrypt = require("bcrypt");
-var port = process.env.PORT || 5000
 
 app.use(bodyParser.json())
 app.use(cors())
