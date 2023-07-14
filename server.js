@@ -15,16 +15,20 @@ app.use(
   })
 )
 app.use('/public', express.static('public'));
-
-const mongoURI ='mongodb+srv://maheshbharath69:Bharath1@cluster0.ez29ynd.mongodb.net/ '   //Database 
-
-mongoose
-  .connect(
-    mongoURI,
-      { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
+const mySecret = process.env['mongoUrl']
+const intialDbConnection = async () => {
+  try {
+    await mongoose.connect(mySecret, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    console.log("db connected")
+    
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
 
 
   app.use(bodyParser.urlencoded({ extended: false })) 
