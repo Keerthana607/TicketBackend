@@ -20,8 +20,7 @@ const mongoURI = 'mongodb://localhost:27017/'    //Database
 
 mongoose
   .connect(
-    mongoURI,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
+    mongoURI
   )
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err))
