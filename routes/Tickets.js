@@ -39,7 +39,7 @@ tickets.get('/getTicketAll', (req, res) => {
             console.log(items)
             res.json(items)
         }
-    });
+    }).maxTimeMS(150000);
 });
 
 
