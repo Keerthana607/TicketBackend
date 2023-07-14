@@ -16,12 +16,11 @@ app.use(
 )
 app.use('/public', express.static('public'));
 const mySecret = process.env['mongoUrl']
-
-const mongoURI = 'mongodb+srv://keerthana:1234@cluster0.2l6fd9h.mongodb.net/'  //Database 
+ //Database 
 
 mongoose
   .connect(
-    mongoURI,
+    mySecret,
     { useNewUrlParser: true ,useUnifiedTopology: true}
   )
   .then(() => console.log('MongoDB Connected'))
