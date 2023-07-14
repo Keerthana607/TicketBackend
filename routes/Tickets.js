@@ -31,7 +31,7 @@ var upload = multer({
 });
 
 tickets.get('/getTicketAll', (req, res) => {
-    Ticket.find({}, (err, items) => {
+    Ticket.find((err, items) => {
         if (err) {
             console.log(err);
         } else {
