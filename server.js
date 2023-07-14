@@ -17,17 +17,19 @@ app.use(
 app.use('/public', express.static('public'));
 const mySecret = process.env['mongoUrl']
  //Database 
-
-mongoose
-  .connect(
-    mySecret,
-    { useNewUrlParser: true ,useUnifiedTopology: true}
-  )
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
-
-
-
+const intialDbConnection = async () => {
+  try {
+    await mongoose.connect(mySecret, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+    console.log("db connected")
+    
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
   app.use(bodyParser.urlencoded({ extended: false })) 
   app.use(bodyParser.json()) 
 var Users = require('./routes/Users')
