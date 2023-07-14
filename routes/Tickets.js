@@ -62,9 +62,7 @@ tickets.post('/addTickets', upload.array('img'), (req, res, next) => {
     console.log(obj);
     Ticket.create(obj).then(result => {
         console.log(result);
-        res.json({
-            status: 200
-        })
+        res.json(result)
     }).catch(err => {
         res.json({
             status: 404
