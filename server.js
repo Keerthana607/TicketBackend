@@ -16,7 +16,16 @@ app.use(
 app.use('/public', express.static('public'));
 
 mongoose.set('strictQuery', true);
-mongoose.connect(process.env.MONGOCONNECTION, { useNewUrlParser: true });
+
+const mongoURI = 'mongodb+srv://keerthana:1234@cluster0.2l6fd9h.mongodb.net/'  //Database 
+
+mongoose
+  .connect(
+    mongoURI,
+    { useNewUrlParser: true ,useUnifiedTopology: true}
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err))
 
 
 app.listen(process.env.PORT, () => {
