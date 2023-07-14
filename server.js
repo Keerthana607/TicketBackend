@@ -16,7 +16,7 @@ app.use(
 )
 app.use('/public', express.static('public'));
 
-const mongoURI = 'mongodb://localhost:27017/'    //Database 
+const mongoURI = 'mongodb://127.0.0.1:27017/'    //Database 
 
 mongoose
   .connect(
